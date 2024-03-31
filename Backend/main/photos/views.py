@@ -12,7 +12,7 @@ class PhotoViewSet(viewsets.ViewSet):
         photos = Photo.objects.all()
         serializer =  PhotoSerializer(photos, many=True)
         publisher = Publisher()
-        publisher.publish('from list', 'message from admin')
+        publisher.publish('from list', 'message from main')
         return Response(serializer.data)
 
     def create(self, request):

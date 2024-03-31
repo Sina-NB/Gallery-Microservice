@@ -13,17 +13,54 @@ services:
     environment:
       - SECRET_KEY=test
       - DEBUG=True
+    depends_on:
+      - broker
 
-  # main:
-  #   build: ./main
-  #   container_name: main
-  #   restart: always
-  #   command: python manage.py runserver 0.0.0.0:8000
-  #   volumes:
-  #     - ./main:/app
-  #   ports:
-  #     - "8000:8000"
-  #   environment:
-  #     - SECRET_KEY=test
-  #     - DEBUG=True
+  admin_consumer:
+    build: ./admin
+    container_name: admin_consumer
+    restart: always
+    command: python consumer.py
+    volumes:
+      - ./admin:/app
+    depends_on:
+      - broker
+
+  main:
+    build: ./main
+    container_name: main
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./main:/app
+    ports:
+      - "8001:8000"
+    environment:
+      - SECRET_KEY=test
+      - DEBUG=True
+    depends_on:
+      - broker
+
+  main_consumer:
+    build: ./main
+    container_name: main_consumer
+    restart: always
+    command: python consumer.py
+    volumes:
+      - ./main:/app
+    depends_on:
+      - broker
   
+  broker:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: my-rabbit
+    restart: always
+    ports:
+      - "15671:15671"
+      - "15672:15672"
+    volumes:
+      - rabbitmq-volume:/var/lib/rabbitmq
+  
+volumes:
+  rabbitmq-volume:
