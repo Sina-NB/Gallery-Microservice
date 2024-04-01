@@ -1,6 +1,8 @@
 
 <h1 align="center">Gallery-Microservice</h1>
-<img src="./Images/Arch.png" width=700>
+<p align="center">
+  <img src="./Images/Arch.png" width=400>
+</p>
 <p><br></p>
 ASimple Gallery app implemented with microservice architecture.
 
