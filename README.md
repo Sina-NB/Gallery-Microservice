@@ -4,7 +4,7 @@
   <img src="./Images/Arch.png" width=400>
 </p>
 <p><br></p>
-ASimple Gallery app implemented with microservice architecture.
+A Simple Gallery app implemented with microservice architecture.
 
 ### Overview
 - [Features](#features)
