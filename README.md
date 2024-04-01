@@ -27,10 +27,21 @@ A Simple Gallery app implemented with microservice architecture.
 | Main | Like and List Photos |
 
 ### Getting ready
-To run backend server; change directory to `Backend` then run following command.
+Change directory to `FrontEnd` and install REACT app dependecies.
 ```bash
-docker compose up --build
+npm install
 ```
-
+Change directory to `Backend` and build docker images.
+```bash
+docker compose build
+```
+Run backend server.
+```bash
+docker compose up
+```
+Change directory to `FrontEnd` and Run FrontEnd server.
+```bash
+npm start
+```
 ### Bugs or Opinion
 Feel free to let me know if there are any problems or any request you have for this repo.
