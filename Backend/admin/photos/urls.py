@@ -11,7 +11,7 @@ urlpatterns = [
 
     path('photos/<str:pk>', PhotoViewSet.as_view({
         'get': 'retrieve',
-        'post': 'update',
+        'put': 'update',
         'delete': 'destroy'
     }))
 ]
