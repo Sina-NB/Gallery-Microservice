@@ -14,8 +14,16 @@ channel.queue_declare(queue='admin')
 
 
 def callback(ch, method, properties, body):
-    print('Received in admin')
-    print(json.loads(body))
+    print('\n======= Message received in admin ========')
+    type = properties.type
+    obj = json.loads(body)
+    print('type: ', type, '==>', 'body: ', obj)
+    
+    if type=='update':
+        photo = Photo.objects.get(id=obj['id'])
+        photo.likes = obj['likes']
+        photo.save()
+        print('photo updated on database.')
 
 
 channel.basic_consume(queue='admin', on_message_callback=callback, auto_ack=True)

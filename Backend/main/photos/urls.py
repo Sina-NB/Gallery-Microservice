@@ -1,17 +1,9 @@
 from django.urls import path
 
-from .views import PhotoViewSet
+from .views import ListPhotos, LikePhoto
 
 
 urlpatterns = [
-    path('photos', PhotoViewSet.as_view({
-        'get': 'list',
-        'post': 'create'
-    })),
-
-    path('photos/<str:pk>', PhotoViewSet.as_view({
-        'get': 'retrieve',
-        'post': 'update',
-        'delete': 'destroy'
-    }))
+    path('photos', ListPhotos.as_view()),
+    path('photos/<int:pk>/like', LikePhoto.as_view())
 ]

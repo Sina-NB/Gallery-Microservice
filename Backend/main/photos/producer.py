@@ -12,3 +12,6 @@ class Publisher():
         properties = pika.BasicProperties(type=message_type)
         self.channel.basic_publish(exchange='', routing_key='admin', body=json.dumps(body), properties=properties)
     
+    def close(self):
+        self.channel.close()
+    
