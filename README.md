@@ -8,6 +8,7 @@ A Simple Gallery app implemented with microservice architecture.
 
 ### Overview
 - [Features](#features)
+- [MicroServices](#microservices)
 - [Getting ready](#getting-ready)
 - [Bugs or Opinion](#bugs-or-opinion)
 
@@ -18,6 +19,12 @@ A Simple Gallery app implemented with microservice architecture.
 - REACT
 - linting tools
 - Dockerize
+
+### MicroServices
+| Name | Responsibility |
+| --- | --- |
+| Admin | CRUD Operations |
+| Main | Like and List Photos |
 
 ### Getting ready
 To run backend server; change directory to `Backend` then run following command.
